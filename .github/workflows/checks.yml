@@ -1,5 +1,5 @@
 ---
-name: checks
+name: Checks
 
 on: [push]
 
@@ -13,7 +13,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
-          passwod: ${{ secrets.DOCKERHUB_TOKEN }}
+          passwod:  ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Checkout
         uses: actions/checkout@v4
