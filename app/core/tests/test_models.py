@@ -24,6 +24,7 @@ class ModelTests(TestCase):
             ['Test2@ExAmpLE.com', 'Test2@example.com'],
             ['TEST3@example.COM', 'TEST3@example.com'],
             ['test4@EXAMPLE.CoM', 'test4@example.com'],
+            ['TeSt5@examPLE.com', 'TeSt5@example.com'],
         ]
         for email, expected in sample_emails:
             user = get_user_model().objects.create_user(
