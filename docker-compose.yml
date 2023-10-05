@@ -13,25 +13,28 @@ services:
       - ./app/:/app
 
     command: >
-      sh -c "python manage.py wait_for_db &&
+      sh -c "while ! nc -z db 5432; do echo 'Waiting for Postgres Database Startup' & sleep 2; done;
+             python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
+
     environment:
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASSWORD=changeme
+
+
     depends_on:
       - db
 
   db:
-    image: postgres:16.0-alpine3.18
+    image: postgres:16-alpine
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
-
 volumes:
   dev-db-data:
