@@ -4,15 +4,16 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as gl
 from .models import User
 
+
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     model = User
     ordering = ['id']
     list_display = ['email', 'name']
     fieldsets = [
-        (None, {'fields':('email', 'password')}),
-        (gl('Permissions'), {'fields':('is_active', 'is_staff', 'is_superuser')}),
-        (gl('Dates'), {'fields':('last_login',)}),
+        (None, {'fields': ('email', 'password')}),
+        (gl('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}), # noqa
+        (gl('Dates'), {'fields': ('last_login',)}),
 
     ]
     add_fieldsets = [
@@ -23,7 +24,7 @@ class UserAdmin(BaseUserAdmin):
 
         (gl('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser'),
-            'classes':('wide',)
+            'classes': ('wide',)
             }),
     ]
 
