@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
       -
         name: Test
-        run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
+        run: docker-compose run --rm app sh -c "while ! nc -z db 5432; do echo 'Waiting for Postgres Database Startup' & sleep 2; done; python manage.py wait_for_db && python manage.py test"
       -
         name:  Lint
         run: docker-compose run --rm app sh -c "flake8"
