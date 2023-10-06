@@ -12,7 +12,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = [
         (None, {'fields': ('email', 'password')}),
-        (gl('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}), # noqa
+        (gl('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),  # noqa
         (gl('Dates'), {'fields': ('last_login',)}),
 
     ]
