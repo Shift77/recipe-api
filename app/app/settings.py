@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # External Packages
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
 
     # Internal apps
     'core',
+    'user',
 ]
 
 MIDDLEWARE = [
