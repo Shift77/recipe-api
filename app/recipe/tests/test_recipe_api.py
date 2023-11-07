@@ -26,6 +26,7 @@ def image_upload_url(recipe_id):
     '''Create and return recipe's image url.'''
     return reverse('recipe:recipe-upload-image', args=[recipe_id])
 
+
 def create_recipe(user, **params):
     '''Create and return a sample recipe.'''
     defaults = {  # The order is different than the order of the model
