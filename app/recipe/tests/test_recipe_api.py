@@ -43,6 +43,7 @@ def create_recipe(user, **params):
 
     return recipe
 
+
 class PublicRecipeApiTests(TestCase):
     '''Test unauthenticated requests.'''
     def setUp(self):
