@@ -4,5 +4,6 @@ djangorestframework==3.14.0
 pytz==2023.3.post1
 sqlparse==0.4.4
 typing_extensions==4.8.0
-psycopg2>=2.9.7, <2.10
+psycopg2>=2.9.7,<2.10
 drf-spectacular>=0.26.5,<0.27
+pillow>=10.1.0,<10.2
